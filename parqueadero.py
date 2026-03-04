@@ -10,21 +10,22 @@ eleccion = input("seleccione una opcion: ")
 opcion_1 = "1"
 opcion_2 = "2"
 opcion_3 = "3" 
+while True:
+ if eleccion == "1":
+    
+    if carros_parqueados <= espacio_disponible:
+        carros_parqueados += 1
+        print("Carro parqueado")
 
-if eleccion == "1":
-   if carros_parqueados < espacio_disponible:
-       carros_parqueados += 1
-       print("Carro parqueado")
-   else:
-       print("No hay espacio disponible por los momentos...")
-
-elif eleccion == "2":
+ if eleccion == "2":
     if carros_parqueados > 0:
-        carros_parqueados -= 1
-        print("Carro retirado")
         
-elif eleccion == 3:
-    print("Bye nigga")  
-
-else:
-    print("Pongase serio ciervo")
+       carros_parqueados -= 1
+       print("Carro retirado")
+        
+ if eleccion == 3:
+       print("Bye")  
+    
+ else:
+        print("Error")
+        break
