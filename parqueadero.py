@@ -1,31 +1,41 @@
+def mostrar_parqueadero():
+      print(parqueadero)
+
 print(" Bienvenido seas al parqueadero ")
+cupos = 10
+opcion = 1
+parqueadero = ["vacio"] * cupos
 
-espacio_total = 10
-carros_parqueados = 5
-espacio_disponible = 5
+while opcion < 4:
+   opcion = int(input("escoge la accion:\n1-ingresar\n2-retirar\n3-mostrar parqueadero\n4-salir\n"))
 
-print("1-Elegir espacio \n2-Retirar carro \n3-Salir del sistema")
-eleccion = input("seleccione una opcion: ")
+if opcion == 1:
+      if "vacio" in parqueadero:
+            placa = input("ingresa la placa: ")
+            if placa in parqueadero:
+                  print("el carro ya esta ingresado")
+            else:
+                  index = parqueadero.index("vacio")
+                  parqueadero[index] = placa
+                  
+      else:
+            print("parqueadero lleno")
+            
+      mostrar_parqueadero()
+      
+elif opcion == 2:
+      if parqueadero.count("vacio") != 10:
+            placa = input("ingresa la placa a retirar: ")
+            if placa in parqueadero:
+                 index = parqueadero.index("vacio")
+                 parqueadero[index] = placa
+            else:
+                  print("el carro no esta ingresado")
+      else:
+       print("parqueadero esta vacio")
+       mostrar_parqueadero
+elif opcion == 3:
+      mostrar_parqueadero
 
-opcion_1 = "1"
-opcion_2 = "2"
-opcion_3 = "3" 
-while True:
- if eleccion == "1":
-    
-    if carros_parqueados <= espacio_disponible:
-        carros_parqueados += 1
-        print("Carro parqueado")
-
- if eleccion == "2":
-    if carros_parqueados > 0:
-        
-       carros_parqueados -= 1
-       print("Carro retirado")
-        
- if eleccion == 3:
-       print("Bye")  
-    
- else:
-        print("Error")
-        break
+else:
+      print("hasta luego")
